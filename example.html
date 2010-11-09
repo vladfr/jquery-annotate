@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="jquery.annotate.css">
+</head>
+<body>
+    
+<div id="container"></div>
+<div id="annotate_tpl" class="annotate"><img class="annotate-bubble" src="images/bubble.png" /><a class="annotate-close"><strong style="color:#ff0000;">x</strong> delete</a><textarea></textarea></div>
+
+<button id="add">Add comment</button>
+<button id="save">Save</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
+<script src="jquery.annotate.min.js"></script>
+
+<script>
+		
+	$(document).ready(function(){
+		$('#container').annotate({tpl:'#annotate_tpl', add:'#add', 'dblclick':true, 'confirmDelete': 'Really delete?'});
+		$('#save').click(function(){
+		    var sdata = $('#container').annotate('serialize');
+		    $('#container').annotate('reset');
+		    alert('Deleted everything! Now, for the reload.');
+		    $('#container').annotate('load', sdata);
+		});
+	});
+	
+</script>
+
+</body>
+</html>
