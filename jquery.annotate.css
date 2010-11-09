@@ -35,6 +35,7 @@
 	    border: 1px solid #aeaeae;
 	    cursor: text;
 	    font-size: 11px;
+		resize: none;
 	}
 	.handle{cursor:move;}
 	#annotate_tpl{display:none;}

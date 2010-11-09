@@ -1,0 +1,47 @@
+Create bubble comments over any container or page with this jQuery plugin. 
+
+Please test before use. This doesn't work in IE6 or 7 for now.
+
+Help is most welcomed!
+
+== Requirements ==
+jQuery (not bundled)
+jQuery UI to make the bubbles draggable and resizable (not bundled)
+
+Tested (for now) on jQuery 1.4.3 and jQuery UI 1.8.6
+Browsers: Firefox 3.6, IE 8, Chrome 7, IE7 (buggy css, needs some love)
+
+== Usage ==
+
+You need to have a hidden div in the page that will be cloned to create the bubbles. 
+The div should contain at least a textarea and a close link with class 'annotate-close'.
+
+Then, just call annotate() on any jQuery wrapped set (block-level elements with width and height work best).
+Alternatively, use $(body) if you want to be able to place annotations all over the page.
+
+== Options ==
+add: Pass an element ID here, and annotate will bind a click event that adds a new bubble in the container.
+tpl: the ID of the template div
+dblclick: (optional, default false) if set to true, double-clicking the container will add a new bubble at the mouse pointer.
+confirmDelete: (optional, default 'Are you sure?') message to be shown when the user tries to delete a non-empty bubble. Set to false to skip the confirm.
+opt_draggable: options object for jQuery.draggable. For now, see source for defaults.
+opt_resizable: options object for jQuery.resizable. For now, see source for defaults.
+
+== API ==
+
+.annotate('add', {top:"10px",bottom:"10px"}) - adds a new bubble at the specified coordinates.
+
+.annotate('reset') - deletes all bubbles, no confirmation.
+
+.annotate('serialize') - returns an object containing all the bubbles and their data (text, position, dimensions, z-index)
+
+.annotate('load', sdata) - loads and creates bubbles from a serialization. The second parameter should be the result of a .annotate('serialize') call.
+
+See example.html for full implementation.
+
+== TODO ==
+Requires Standards-mode, in Quirks the css is buggy.
+IE6 and 7 need some love.
+
+== Version ==
+0.1 - first commit
